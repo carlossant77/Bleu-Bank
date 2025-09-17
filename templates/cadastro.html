@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/styles/styleLogin.css">
+    <title>Login</title>
+</head>
+
+<body>
+    <div class="conteudo">
+        <div class="logo animar-logo">
+            <img src="/static/assets/nomeLogo.png" alt="Logo">
+        </div>
+
+        <form method="POST" action="/cadastro">
+            <p class="subtitulo animar-campo">Para começarmos...</p>
+
+            <label class="animar-campo">Insira seu nome</label>
+            <input type="text" name="nome" required class="animar-campo">
+
+            <label class="animar-campo">Insira sua data de nascimento</label>
+            <input type="date" name="nascimento" required class="animar-campo">
+
+            <label class="animar-campo">Nome de usuário</label>
+            <input type="text" name="user" required class="animar-campo">
+
+            <button type="submit" class="animar-campo"><b>Prosseguir</b></button>
+        </form>
+
+        <p class="entrar animar-campo" style="width: 25%;">Já é cliente? &nbsp;<a href="/login">Entrar</a></p>
+    </div>
+</body>
+
+</html>

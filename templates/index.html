@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bleu Bank</title>
+  <link rel="stylesheet" href="/static/styles/estilo.css">
+</head>
+<body>
+  <!-- Header -->
+  <header class="header">
+    <div class="container">
+      <div class="logo">
+        <img src="/static/assets/nomeLogo.png" alt="Bleu Bank" class="logo-img">
+      </div>
+      <div class="header-actions">
+        <a class="btn-secondary" href="/login" style="text-decoration: none;">Entrar</a>
+        <a class="btn-primary" href="/cadastro" style="text-decoration: none;">Abrir Conta</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <main class="hero">
+    <div class="hero-background">
+      <img src="/static/assets/banco.png" alt="Prédio moderno" class="hero-image">
+      <div class="hero-overlay"></div>
+    </div>
+    <div class="container">
+      <div class="hero-content">
+        <h1 class="hero-title">Moderno, elegante,<br>e eficiente.</h1>
+        <p class="hero-subtitle">Conheça o <span class="brand-highlight">Bleu Bank</span></p>
+        <a class="btn-cta" href="/cadastro" style="text-decoration: none;">Ver Mais</a>
+      </div>
+    </div>
+  </main>
+
+  <!-- Cartões -->
+  <section class="cards-section">
+    <div class="container">
+
+      <!-- Dots (agora buttons para acessibilidade) -->
+      <div class="dots" role="tablist" aria-label="Destaques">
+        <button class="dot active" role="tab" aria-selected="true" aria-controls="info0" tabindex="0"></button>
+        <button class="dot" role="tab" aria-selected="false" aria-controls="info1" tabindex="-1"></button>
+        <button class="dot" role="tab" aria-selected="false" aria-controls="info2" tabindex="-1"></button>
+      </div>
+
+      <div class="info-box" aria-live="polite">
+        <div id="info0" class="info-content active">
+          <div class="card" onclick="this.classList.toggle('flip')">
+            <div class="card-inner">
+              <div class="card-front">
+                <img src="/static/assets/frente-cartao.png" alt="Cartão Frente">
+              </div>
+              <div class="card-back">
+                <img src="/static/assets/tras-cartao.png" alt="Cartão Verso">
+              </div>
+            </div>
+          </div>
+
+          <div>
+            <p class="p1">Seu primeiro <b>cartão de crédito</b> com até
+              <span style="color:#4A90E2;">R$15.000</span> de
+              <span style="text-decoration:underline;">limite</span>.
+            </p>
+            <p class="p2">Sem anuidade, tarifas ou qualquer taxa de uso.</p>
+          </div>
+        </div>
+
+        <div id="info1" class="info-content">
+          <div>
+            <p class="p3">Suas operações <b>100% automatizadas.</b></p>
+            <p class="p4">Realize empréstimos e pague boletos através do nosso ChatBot.</p>
+          </div>
+          <img class="img1" src="/static/assets/parte2.png" alt="parte2">
+        </div>
+
+        <div id="info2" class="info-content center-content">
+          <p class="p5"><b>Totalmente Digital</b><br>Sem burocracias e papeladas</p>
+          <img class="img2" src="/static/assets/parte3.png" alt="parte3">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Novo script (substitui o antigo showInfo) -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const dots = Array.from(document.querySelectorAll('.dots .dot'));
+      const panels = Array.from(document.querySelectorAll('.info-box .info-content'));
+      const box = document.querySelector('.info-box');
+
+      let current = panels.findIndex(p => p.classList.contains('active'));
+      if (current < 0) current = 0;
+
+      function setActive(idx, { focusDot = false } = {}) {
+        if (idx < 0) idx = panels.length - 1;
+        if (idx >= panels.length) idx = 0;
+
+        panels.forEach(p => p.classList.remove('active'));
+        dots.forEach(d => {
+          d.classList.remove('active');
+          d.setAttribute('aria-selected', 'false');
+          d.setAttribute('tabindex', '-1');
+        });
+
+        panels[idx].classList.add('active');
+        dots[idx].classList.add('active');
+        dots[idx].setAttribute('aria-selected', 'true');
+        dots[idx].setAttribute('tabindex', '0');
+        if (focusDot) dots[idx].focus();
+        current = idx;
+      }
+
+      // clique e teclado nos dots
+      dots.forEach((dot, i) => {
+        dot.addEventListener('click', () => setActive(i));
+        dot.addEventListener('keydown', (e) => {
+          if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); setActive(i); }
+          if (e.key === 'ArrowRight') { e.preventDefault(); setActive(i + 1, { focusDot: true }); }
+          if (e.key === 'ArrowLeft')  { e.preventDefault(); setActive(i - 1, { focusDot: true }); }
+        });
+      });
+
+      // swipe no mobile
+      let startX = null;
+      box.addEventListener('touchstart', (e) => { startX = e.changedTouches[0].clientX; }, { passive: true });
+      box.addEventListener('touchend', (e) => {
+        if (startX === null) return;
+        const dx = e.changedTouches[0].clientX - startX;
+        if (Math.abs(dx) > 40) setActive(current + (dx < 0 ? 1 : -1));
+        startX = null;
+      }, { passive: true });
+
+      // inicia corretamente
+      setActive(current);
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/styles/styleLogin.css">
+    <title>Senha</title>
+</head>
+
+<body>
+    <div class="conteudo">
+        <div class="logo animar-logo">
+            <img src="/static/assets/nomeLogo.png" alt="Logo">
+        </div>
+
+        <form method="POST" action="/senha">
+            <p class="subtitulo animar-campo">Só mais um passo...</p>
+
+            <!-- Campos ocultos para receber os dados do cadastro inicial -->
+            <input type="hidden" name="nome" value="{{ nome }}">
+            <input type="hidden" name="nascimento" value="{{ nascimento }}">
+            <input type="hidden" name="user" value="{{ user }}">
+
+            <label class="animar-campo">Insira sua senha</label>
+            <input type="password" name="senha" required class="animar-campo">
+
+            <label class="animar-campo">Confirme sua senha</label>
+            <input type="password" name="senha_confirm" required class="animar-campo">
+
+            <button type="submit" class="animar-campo">Prosseguir</button>
+        </form>
+
+        {% if erro %}
+        <p style="color: red; margin-top: 10px;">{{ erro }}</p>
+        {% endif %}
+
+        <p class="entrar animar-campo" style="width: 25%;">Já possui uma conta? &nbsp;<a href="/login">Entrar</a></p>
+    </div>
+
+</body>
+
+</html>

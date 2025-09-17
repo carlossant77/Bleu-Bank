@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/styles/styleLogin.css">
+    <title>Login</title>
+</head>
+
+<body>
+    <div class="conteudo">
+        <div class="logo animar-logo">
+            <img src="/static/assets/nomeLogo.png" alt="Logo">
+        </div>
+
+        <form method="POST" action="/login">
+            <label class="animar-campo">Usuário</label>
+            <input type="text" name="user" required class="animar-campo">
+
+            <label class="animar-campo">Senha</label>
+            <input type="password" name="senha" required class="animar-campo">
+
+            <button type="submit" class="animar-campo"><b>Entrar</b></button>
+        </form>
+
+        {% if erro %}
+        <p style="color: red; margin-top: 10px;">{{ erro }}</p>
+        {% endif %}
+
+        <p class="entrar animar-campo" style="width: 25%;">
+            Não possui uma conta? &nbsp;<a href="/cadastro">Cadastrar</a>
+        </p>
+    </div>
+    
+</body>
+
+</html>

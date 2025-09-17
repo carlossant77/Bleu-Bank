@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bleu Bank</title>
+  <link rel="stylesheet" href="/static/styles/styleInicial.css">
+</head>
+
+<body>
+  <!-- Navbar -->
+  <nav>
+    <div class="logo">
+      <img src="/static/assets/BB.png" alt="Logo Bleu Bank" width="300px">
+    </div>
+    <form action="/logout" method="get" style="display: flex; align-items: center;">
+      <button type="submit" class="btn-logout">Encerrar Sessão</button>
+    </form>
+  </nav>
+
+  <!-- Título -->
+  <div class="titulo">
+    <h1>Olá, {{ nome }} </h1>
+  </div>
+
+  <!-- Saldo -->
+  <div class="saldo">
+    <p class="texto-saldo">Seu saldo é:</p>
+    <p class="valor-saldo">
+      <span id="valor-saldo">R$5.789,89</span>
+      <img id="toggle-saldo" src="/static/assets/olho.png" alt="Ver saldo">
+    </p>
+    <p class="link-moedas">Ver outras moedas</p>
+  </div>
+
+  <!-- Opções -->
+  <div class="opcoes">
+    <div class="item-opcao">
+      <div class="circulo"><a href="https://w.app/bluebank" style="display: flex; justify-content: center;"><img src="/static/assets/pix.png" alt=""></a></div>
+      <p style="text-align: center;">Transferência <br>PIX</p>
+    </div>
+    <div class="item-opcao">
+      <div class="circulo"><a href="https://w.app/bluebank1" style="display: flex; justify-content: center;"><img src="/static/assets/emprestimo.png" alt=""></a></div>
+      <p style="text-align: center;">Solicitar <br>Empréstimo</p>
+    </div>
+    <div class="item-opcao">
+      <div class="circulo"><a href="https://w.app/bluebank2" style="display: flex; justify-content: center;"><img src="/static/assets/barras.png" alt=""></a></div>
+      <p style="text-align: center;">Pagar Fatura</p>
+    </div>
+    <div class="item-opcao">
+      <div class="circulo"><a href="https://w.app/bluebank3" style="display: flex; justify-content: center;"><img src="/static/assets/cartao.png" alt=""></a></div>
+      <p>Ver Fatura</p>
+    </div>
+    <div class="item-opcao">
+      <div class="circulo"><a href="https://w.app/bluebank4" style="display: flex; justify-content: center;"><img src="/static/assets/carteira.png" alt=""></a></div>
+      <p style="text-align: center;">Carteira de <br>Investimentos</p>
+    </div>
+    <div class="item-opcao">
+      <div class="circulo"><img src="/static/assets/opcoes.png" alt=""></div>
+      <p>Configurações</p>
+    </div>
+  </div>
+
+  <!-- Mais Serviços -->
+  <h1 class="titulo-servicos">Mais Serviços</h1>
+  <div class="servicos">
+    <div class="card img1">
+      <p>Seguro de Vida <b><br>Bleu Bank</b></p>
+    </div>
+    <div class="card img2">
+      <p>Serviços de Câmbio <b><br>Bleu Bank</b></p>
+    </div>
+    <div class="card img3">
+      <p>Gestão de Investimentos <b><br>Bleu Bank</b></p>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 - Empresa Bleu Bank | Todos os direitos reservados</p>
+    <p>Contato: <a href="mailto:bleubank@empresa.com">bleubank@empresa.com</a> | Redes sociais:
+      <a href="#">Facebook</a> | <a href="#">Instagram</a>
+    </p>
+  </footer>
+
+  <script src="/static/scripts/script.js"></script>
+</body>
+
+</html>

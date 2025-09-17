@@ -1,0 +1,486 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background: #ffffff;
+}
+
+/* Container padrão */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Header fixo */
+.header {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    background: rgba(255,255,255,0.95);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(0,0,0,0.1);
+    z-index: 1000;
+}
+.header .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px 20px;
+}
+.logo { 
+    display: flex; 
+    align-items: center; 
+    gap: 10px; 
+}
+.logo img {
+    height: 80px;  
+    width: auto;   
+    display: block;
+}
+.logo-text { 
+    font-size: 22px; 
+    font-weight: 700; 
+    color: #4A90E2; 
+}
+.nav { 
+    display: flex; 
+    gap: 25px; 
+}
+.nav-link { 
+    text-decoration: none; 
+    color: #666; 
+    font-weight: 500; 
+}
+.nav-link:hover { 
+    color: #4A90E2; 
+}
+
+/* Botões */
+.btn-primary, .btn-secondary, .btn-cta {
+    padding: 12px 24px;
+    border: none;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s;
+}
+.btn-primary { 
+    background: #4A90E2; 
+    color: white; 
+}
+.btn-primary:hover { 
+    background: #357ABD; 
+}
+.btn-secondary { 
+    background: transparent; 
+    border: 2px solid #4A90E2; 
+    color: #4A90E2; 
+}
+.btn-secondary:hover { 
+    background: #4A90E2; 
+    color: white; 
+}
+.btn-cta {
+    background: #4A90E2;
+    color: white;
+    font-size: 30px;
+    font-weight: 600;
+    padding: 14px 56px;
+    border: none;
+    border-radius: 8px;
+    margin-top: 40px;
+    cursor: pointer;
+    transition: 0.3s;
+    align-self: flex-start;  
+}
+
+/* Hero */
+.hero {
+    position: relative;
+    height: 78vh;
+    display: flex;
+    align-items: flex-start; 
+    justify-content: flex-start;
+    padding: 140px 0 0 0;
+    overflow: hidden;
+}
+
+.hero .container {
+    padding-left: 0;
+    margin-left: 0;
+    max-width: none;
+}
+
+.hero-background {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    overflow: hidden;
+}
+
+.hero-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.hero-overlay {
+    position: absolute; 
+    top: 0; left: 0; 
+    width: 100%; height: 100%;
+    background: rgba(0,0,0,0.4);
+}
+
+.hero-content {
+    color: white;
+    max-width: 600px;
+    display: flex;
+    flex-direction: column; 
+    align-items: flex-start; 
+    gap: 15px; 
+    text-align: left;
+    padding-left: 40px;
+}
+
+.hero-title {
+    font-size: 56px;
+    font-weight: 100;
+}
+
+.hero-subtitle {
+    font-size: 34px;
+    font-weight: 900;
+    margin: 0;
+}
+
+.brand-highlight { 
+    color: #87CEEB; 
+    font-weight: 600; 
+}
+
+.hero-button {
+    margin-top: 25px;
+}
+
+.btn-cta {
+    background: #4A90E2;
+    color: white;
+    font-size: 22px;
+    font-weight: 600;
+    padding: 12px 40px;
+    border: none;
+    border-radius: 8px;
+    margin-top: 30px;
+    cursor: pointer;
+    transition: 0.3s;
+    align-self: flex-start;  
+}
+
+/* Responsividade */
+@media (max-width: 1024px) {
+    .hero {
+        height: 72vh;
+        padding: 120px 0 0 0;
+    }
+    .hero-title {
+        font-size: 48px;
+    }
+    .hero-subtitle {
+        font-size: 30px;
+    }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+    .hero {
+        height: auto;
+        min-height: 100vh;
+        padding: 100px 20px 40px 20px;
+        justify-content: center;
+        align-items: center;
+        text-align: left; 
+    }
+
+    /* Header menor */
+    .header .container {
+        padding: 8px 12px;
+    }
+    .logo img {
+        height: 45px;
+    }
+    .logo-text {
+        font-size: 18px;
+    }
+
+    /* Botões lado a lado no mobile */
+    .header-actions {
+        display: flex;
+        flex-direction: row;
+        gap: 8px;
+    }
+    .btn-primary, .btn-secondary {
+        padding: 6px 12px;
+        font-size: 14px;
+    }
+
+    .hero-content {
+        padding-left: 0;
+        align-items: flex-start;   
+        text-align: left;
+        max-width: 100%;           
+    }
+
+    .hero-title {
+        font-size: 38px;
+        line-height: 1.2;
+    }
+
+    .hero-subtitle {
+        font-size: 22px;
+    }
+
+    .btn-cta {
+        font-size: 18px;
+        padding: 10px 20px;
+        align-self: center;
+    }
+
+    .hero-image {
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .center-content .img2 {
+        max-width: 220px;
+    }
+    .img1 {
+        width: 120px;
+    }
+
+    /* Caixa menor no mobile */
+    .info-box {
+        padding: 10px;
+        max-width: 100%;
+    }
+
+    /* Cartão menor */
+    .img1 {
+        width: 120px;
+        margin: 0 auto;
+    }
+
+    /* Texto menor */
+    .p1, .p2, .p3, .p4, .p5 {
+        font-size: 14px;
+        line-height: 1.4;
+        max-width: 250px;
+        margin: 8px auto;
+        text-align: center;
+    }
+
+    /* Layout em coluna */
+    .info-content {
+        flex-direction: column;
+        gap: 12px;
+        text-align: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero {
+        height: auto;
+        padding: 80px 15px 40px 15px;
+    }
+
+    .hero-title {
+        font-size: 32px;
+    }
+
+    .hero-subtitle {
+        font-size: 20px;
+    }
+
+    .btn-cta {
+        font-size: 16px;
+        padding: 8px 18px;
+    }
+}
+
+/* Seção cartões */
+.cards-section { 
+    padding: 80px 20px; 
+}
+
+/* Dots - agora são buttons (reset + estilos) */
+.dots { 
+    text-align: center; 
+    margin-bottom: 20px; 
+}
+.dots .dot {
+    -webkit-appearance: none;
+    appearance: none;
+    border: 0;
+    width: 15px;
+    height: 15px;
+    margin: 0 8px;
+    background: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+    cursor: pointer;
+}
+.dots .dot.active { 
+    background: #333; 
+}
+.dots .dot:focus-visible {
+    outline: 3px solid #4A90E2;
+    outline-offset: 3px;
+}
+
+/* caixa de informações */
+.info-box {
+    border-radius: 20px;
+    padding: 20px;
+    max-width: 900px; 
+    margin: 0 auto; 
+}
+
+.img-wrapper {
+    display: flex;
+    justify-content: center; 
+    align-items: center; 
+    width: 100%;
+    margin-top: 20px;
+}
+.center-content {
+    display: flex;
+    flex-direction: column;  
+    justify-content: center; 
+    align-items: center;     
+    text-align: center;      
+}
+
+.center-content .img2 {
+    margin-top: 20px;
+    max-width: 400px;
+    width: 100%;
+    height: auto;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+}
+#info2 {
+    width: 100%;
+    height: 100%;
+    padding: 0; 
+    margin: 0;  
+}
+
+#info2 .img2 {
+    width: 100%;
+    height: auto;
+    max-width: 700px;
+    border-radius: 20px;  
+    box-shadow: none;  
+    object-fit: cover; 
+    display: block;
+}
+
+/* Conteúdos (padrão escondido; active mostra com animação) */
+.info-content {
+    display: none;
+    align-items: center;
+    justify-content: center; 
+    gap: 60px; 
+}
+.info-content.active {
+    display: flex;
+    animation: fadeSlide .35s ease both;
+}
+@keyframes fadeSlide {
+  from { opacity: 0; transform: translateY(6px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+#info2{
+    gap: 0px;
+}
+
+.img1 { 
+    width: 200px;
+    border-radius: 12px; 
+    box-shadow: 0 10px 20px rgba(0,0,0,0.25); 
+}
+
+.p5{
+    font-size: 35px;
+}
+.p1, .p2, .p3, .p4 {
+    font-family: 'Inter', sans-serif;
+    max-width: 500px;
+    margin-bottom: 20px;
+    font-size: 20px;
+}
+.p3 { 
+    font-size: 28px; 
+}
+
+/* Responsividade extra */
+@media (max-width: 1024px) {
+    .hero {
+        height: 70vh;
+    }
+    .hero-title {
+        font-size: 45px;
+    }
+    .hero-subtitle {
+        font-size: 28px;
+    }
+    .center-content .img2 {
+        max-width: 350px;
+    }
+    .img1 {
+        width: 180px;
+    }
+}
+
+.card {
+  width: 250px;   /* largura maior */
+  height: 360px;  /* altura continua igual */
+  perspective: 1000px;
+  cursor: pointer;
+}
+.card-inner {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform 0.8s;
+}
+.card.flip .card-inner,
+.card:hover .card-inner {
+  transform: rotateY(180deg);
+}
+.card-front,
+.card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 12px;
+  overflow: hidden;
+  backface-visibility: hidden;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+}
+.card-front img,
+.card-back img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.card-back { transform: rotateY(180deg); }
